@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('district');
             $table->string('city');
             $table->string('state');
-            $table->foreignId('patient_id')->constrained();
+            $table->foreignId('patient_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
