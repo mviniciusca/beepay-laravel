@@ -9,4 +9,7 @@ use Illuminate\Support\Facades\Route;
  * Collection of endpoints routes for the application
  */
 
-Route::post('v1/patients', [PatientController::class, 'store'])->name('api.store.patient');
+Route::prefix('v1')->group(function () {
+    Route::post('/patients', [PatientController::class, 'store'])->name('api.store.patient');
+});
+

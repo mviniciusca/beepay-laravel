@@ -18,7 +18,6 @@ return new class extends Migration {
             $table->date('birth_date');
             $table->string('cpf')->unique();
             $table->string('cns');
-            $table->integer('address_id');
             $table->timestamps();
         });
     }

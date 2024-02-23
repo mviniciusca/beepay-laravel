@@ -19,7 +19,7 @@ class PatientTest extends TestCase
     }
 
     /** @test **/
-    public function it_should_able_to_create_a_patient(): void
+    public function it_should_able_to_create_a_new_patient(): void
     {
         $this->withoutExceptionHandling();
         $this->postJson(route('api.store.patient'), [

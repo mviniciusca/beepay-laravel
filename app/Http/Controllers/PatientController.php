@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Address;
 use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -22,20 +23,24 @@ class PatientController extends Controller
             'cpf' => ['required', 'string', 'max:11', 'unique:patients'],
             'cns' => ['required', 'string', 'max:15', 'unique:patients'],
             'picture' => ['nullable', 'string', 'max:255'],
-            'address_id' => ['required', 'integer']
+            //
+            'zip_code' => ['required', 'string', 'max:8'],
+            'street' => ['required', 'string', 'max:255'],
+            'number' => ['required', 'string', 'max:20'],
+            'complement' => ['nullable', 'string', 'max:255'],
+            'district' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:2'],
         ]);
 
         if ($data->fails()) {
             return response()->json([
-                'message' => 'Validation failed',
+                'message' => 'Validation failed.',
                 'errors' => $data->errors()
             ], 400);
         }
 
         $data = $data->validated();
-
-        Patient::query()
-            ->create($data);
 
         return response()->json([
             'message' => 'Patient created successfully',
