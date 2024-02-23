@@ -28,23 +28,38 @@ class PatientTest extends TestCase
             'birth_date' => '1990-01-01',
             'cpf' => '12345678901',
             'cns' => '123456789012345',
-            'picture' => '1',
-            'address_id' => 1
+            'picture' => 'photo.jpg',
+            'zip_code' => '12345678',
+            'street' => 'Main Street',
+            'number' => '123',
+            'complement' => 'Near the park',
+            'district' => 'Downtown',
+            'city' => 'Big City',
+            'state' => 'BC',
         ])
             ->assertJson([
-                'message' => 'Patient created successfully',
+                'message' => 'Patient created successfully!',
             ])
             ->assertStatus(Response::HTTP_CREATED);
 
         $this->assertDatabaseHas('patients', [
-            'id' => 1,
             'full_name' => 'John Doe',
             'mother_name' => 'Jane Doe',
             'birth_date' => '1990-01-01',
             'cpf' => '12345678901',
             'cns' => '123456789012345',
-            'picture' => '1',
-            'address_id' => 1
+            'picture' => 'photo.jpg',
+        ]);
+
+        $this->assertDatabaseHas('addresses', [
+            'zip_code' => '12345678',
+            'street' => 'Main Street',
+            'number' => '123',
+            'complement' => 'Near the park',
+            'district' => 'Downtown',
+            'city' => 'Big City',
+            'state' => 'BC',
+            'patient_id' => 1,
         ]);
     }
 }
