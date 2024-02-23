@@ -34,12 +34,11 @@ class PatientController extends Controller
 
         $data = $data->validated();
 
-        Patient::create($data);
+        Patient::query()
+            ->create($data);
 
         return response()->json([
             'message' => 'Patient created successfully',
         ], 201);
-
-
     }
 }
