@@ -14,32 +14,34 @@ class PatientTest extends TestCase
     /** @test **/
     public function it_should_detected_patients_table_on_application_core(): void
     {
-        $database = DB::connection()->getSchemaBuilder()->hasTable('users');
+        $database = DB::connection()->getSchemaBuilder()->hasTable('patients');
         $this->assertTrue($database);
     }
 
     /** @test **/
     public function it_should_able_to_create_a_patient(): void
     {
-        $this->post(route('api.store.patient'), [
-            'picture' => 'https://via.placeholder.com/150',
+        $this->withoutExceptionHandling();
+        $this->postJson(route('api.store.patient'), [
             'full_name' => 'John Doe',
             'mother_name' => 'Jane Doe',
             'birth_date' => '1990-01-01',
-            'CPF' => '12345678901',
-            'CNS' => '123456789012345',
-            'address_id' => 1,
+            'cpf' => '12345678901',
+            'cns' => '123456789012345',
+            'picture' => '1',
+            'address_id' => 1
         ])
             ->assertStatus(Response::HTTP_CREATED);
 
         $this->assertDatabaseHas('patients', [
-            'picture' => 'https://via.placeholder.com/150',
+            'id' => 1,
             'full_name' => 'John Doe',
             'mother_name' => 'Jane Doe',
             'birth_date' => '1990-01-01',
-            'CPF' => '12345678901',
-            'CNS' => '123456789012345',
-            'address_id' => 1,
+            'cpf' => '12345678901',
+            'cns' => '123456789012345',
+            'picture' => '1',
+            'address_id' => 1
         ]);
     }
 }
