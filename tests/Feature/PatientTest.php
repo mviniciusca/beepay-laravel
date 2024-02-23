@@ -11,8 +11,6 @@ use Tests\TestCase;
 
 class PatientTest extends TestCase
 {
-    use RefreshDatabase;
-
     /** @test **/
     public function it_should_detects_patients_table_on_application_core(): void
     {
@@ -34,10 +32,52 @@ class PatientTest extends TestCase
     }
 
     /** @test **/
-    public function it_should_deny_access_to_post_route(): void
+    public function it_should_deny_access_to_post_route_via_get_method(): void
     {
         $this->getJson(route('api.store.patient'))
             ->assertStatus(Response::HTTP_METHOD_NOT_ALLOWED);
+    }
+
+    /** @test **/
+    public function it_should_deny_access_to_post_route_via_put_method(): void
+    {
+        $this->putJson(route('api.store.patient'))
+            ->assertStatus(Response::HTTP_METHOD_NOT_ALLOWED);
+    }
+
+    /** @test **/
+    public function it_should_validate_patient_required_fields(): void
+    {
+        $this->postJson(route('api.store.patient'), [])
+            ->assertJsonValidationErrors([
+                'full_name',
+                'mother_name',
+                'birth_date',
+                'cpf',
+                'cns',
+            ]);
+    }
+
+    /** @test **/
+    public function it_should_validate_patient_address_required_fields(): void
+    {
+        $this->postJson(route('api.store.patient'), [
+            'full_name' => 'John Doe',
+            'mother_name' => 'Jane Doe',
+            'birth_date' => '1990-01-01',
+            'cpf' => '12345678901',
+            'cns' => '123456789012345',
+            'picture' => 'photo.jpg',
+        ])
+            ->assertJsonValidationErrors([
+                'zip_code',
+                'street',
+                'number',
+                'complement',
+                'district',
+                'city',
+                'state',
+            ]);
     }
 
     /** @test **/
@@ -82,7 +122,6 @@ class PatientTest extends TestCase
             'district' => 'Downtown',
             'city' => 'Big City',
             'state' => 'BC',
-            'patient_id' => 1,
         ]);
     }
 }

@@ -38,7 +38,7 @@ class PatientController extends Controller
             'zip_code' => ['required', 'string', 'max:8'],
             'street' => ['required', 'string', 'max:255'],
             'number' => ['required', 'string', 'max:20'],
-            'complement' => ['nullable', 'string', 'max:255'],
+            'complement' => ['required', 'string', 'max:255'],
             'district' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
             'state' => ['required', 'string', 'max:2'],
