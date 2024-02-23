@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Validator;
 
 class PatientController extends Controller
 {
+
+    /**
+     * Create a new patient on database
+     * @return mixed|\Illuminate\Http\JsonResponse
+     */
     public function store()
     {
         $data = Validator::make(request()->all(), [
@@ -29,11 +34,10 @@ class PatientController extends Controller
 
         $data = $data->validated();
 
-        $patient = Patient::create($data);
+        Patient::create($data);
 
         return response()->json([
             'message' => 'Patient created successfully',
-            'patient' => $patient
         ], 201);
 
 

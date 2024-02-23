@@ -31,6 +31,9 @@ class PatientTest extends TestCase
             'picture' => '1',
             'address_id' => 1
         ])
+            ->assertJson([
+                'message' => 'Patient created successfully',
+            ])
             ->assertStatus(Response::HTTP_CREATED);
 
         $this->assertDatabaseHas('patients', [
