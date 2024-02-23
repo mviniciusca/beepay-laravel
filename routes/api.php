@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::prefix('v1')->group(function () {
+    Route::get('/patients', [PatientController::class, 'index'])->name('api.index.patient');
     Route::post('/patients', [PatientController::class, 'store'])->name('api.store.patient');
 });
 

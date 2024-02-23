@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 class PatientController extends Controller
 {
 
+    public function index()
+    {
+        return Patient::with('addresses')->paginate(10);
+    }
+
     /**
      * Create a new patient on database
      * @return mixed|\Illuminate\Http\JsonResponse

@@ -124,4 +124,12 @@ class PatientTest extends TestCase
             'state' => 'BC',
         ]);
     }
+
+    /** @test **/
+    public function it_should_get_all_patients(): void
+    {
+        $this->withoutExceptionHandling();
+        $this->getJson(route('api.index.patient'))
+            ->assertStatus(Response::HTTP_OK);
+    }
 }
