@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Patient;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 // use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
@@ -29,13 +30,6 @@ class PatientTest extends TestCase
     public function it_should_find_api_post_route(): void
     {
         $this->assertTrue(Route::has('api.store.patient'));
-    }
-
-    /** @test **/
-    public function it_should_deny_access_to_api_route_via_put_method(): void
-    {
-        $this->putJson(route('api.store.patient'))
-            ->assertStatus(Response::HTTP_METHOD_NOT_ALLOWED);
     }
 
     /** @test **/
@@ -124,5 +118,48 @@ class PatientTest extends TestCase
         $this->withoutExceptionHandling();
         $this->getJson(route('api.index.patient'))
             ->assertStatus(Response::HTTP_OK);
+    }
+
+    /** @test **/
+    public function it_should_allow_to_delete_patient_from_database(): void
+    {
+        $this->withoutExceptionHandling();
+        $patient = Patient::factory()->create();
+        $this->deleteJson(route('api.destroy.patient', $patient->id))
+            ->assertJson([
+                'message' => 'Patient deleted successfully!',
+            ])
+            ->assertStatus(Response::HTTP_OK);
+
+        $this->assertDatabaseMissing('patients', ['id' => $patient->id]);
+    }
+
+
+    /** @test **/
+    public function it_should_update_patient_information_on_database(): void
+    {
+        $this->withoutExceptionHandling();
+        $patient = Patient::factory()->create(['full_name' => 'Marcos Coelho']);
+        $this->putJson(route('api.update.patient', $patient->id), [
+            'full_name' => 'John Doe Updated',
+            'mother_name' => 'Jane Doe',
+            'birth_date' => '1990-01-01',
+            'cpf' => '12345678901',
+            'cns' => '123456789012345',
+            'picture' => 'photo.jpg',
+            'zip_code' => '12345678',
+            'street' => 'Main Street',
+            'number' => '123',
+            'complement' => 'Near the park',
+            'district' => 'Downtown',
+            'city' => 'Big City',
+            'state' => 'BC',
+        ])
+            ->assertJson([
+                'message' => 'Patient updated successfully!',
+            ])
+            ->assertStatus(Response::HTTP_OK);
+
+        $this->assertDatabaseHas('patients', ['full_name' => 'John Doe Updated']);
     }
 }

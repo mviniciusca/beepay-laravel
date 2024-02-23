@@ -72,4 +72,73 @@ class PatientController extends Controller
             'message' => 'Patient created successfully!',
         ], 201);
     }
+
+    /**
+     * Remove the specified patient from database
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Exception
+     */
+    public function destroy($id)
+    {
+        $data = Validator::make(['id' => $id], [
+            'id' => ['required', 'integer', 'exists:patients,id'],
+        ]);
+        if ($data->fails()) {
+            return response()->json([
+                'message' => 'Validation failed.',
+                'errors' => $data->errors()
+            ], 400);
+        }
+        Patient::destroy($data->validated());
+        return response()->json([
+            'message' => 'Patient deleted successfully!',
+        ], 200);
+    }
+
+    /**
+     * Update the specified patient in database
+     * @param Request $request
+     * @param Patient $patient
+     * @return \Illuminate\Http\JsonResponse
+     */
+
+    public function update(Request $request, $id)
+    {
+        $patient = Patient::find($id);
+        $patient_data = Validator::make($request->all(), [
+            'full_name' => ['required', 'string', 'max:255'],
+            'mother_name' => ['required', 'string', 'max:255'],
+            'birth_date' => ['required', 'date'],
+            'cpf' => ['required', 'string', 'max:11', 'unique:patients,cpf,'],
+            'cns' => ['required', 'string', 'max:15', 'unique:patients,cns,'],
+            'picture' => ['nullable', 'string', 'max:255'],
+        ]);
+        if ($patient_data->fails()) {
+            return response()->json([
+                'message' => 'Validation failed.',
+                'errors' => $patient_data->errors()
+            ], 400);
+        }
+        $patient->update($patient_data->validated());
+
+        $patient_address_data = Validator::make($request->all(), [
+            'zip_code' => ['required', 'string', 'max:8'],
+            'street' => ['required', 'string', 'max:255'],
+            'number' => ['required', 'string', 'max:20'],
+            'complement' => ['required', 'string', 'max:255'],
+            'district' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:2'],
+        ]);
+        if ($patient_address_data->fails()) {
+            return response()->json([
+                'message' => 'Validation failed.',
+                'errors' => $patient_address_data->errors()
+            ], 400);
+        }
+        $patient->addresses()->update($patient_address_data->validated());
+        return response()->json([
+            'message' => 'Patient updated successfully!',
+        ], 200);
+    }
 }
