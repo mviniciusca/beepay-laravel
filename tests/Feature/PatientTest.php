@@ -32,14 +32,7 @@ class PatientTest extends TestCase
     }
 
     /** @test **/
-    public function it_should_deny_access_to_post_route_via_get_method(): void
-    {
-        $this->getJson(route('api.store.patient'))
-            ->assertStatus(Response::HTTP_METHOD_NOT_ALLOWED);
-    }
-
-    /** @test **/
-    public function it_should_deny_access_to_post_route_via_put_method(): void
+    public function it_should_deny_access_to_api_route_via_put_method(): void
     {
         $this->putJson(route('api.store.patient'))
             ->assertStatus(Response::HTTP_METHOD_NOT_ALLOWED);

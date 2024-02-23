@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PatientResource;
 use App\Models\Address;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -10,9 +11,15 @@ use Illuminate\Support\Facades\Validator;
 class PatientController extends Controller
 {
 
+
+    /**
+     * Display a listing of the patients.
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     */
     public function index()
     {
-        return Patient::with('addresses')->paginate(10);
+        $patients = Patient::all();
+        return PatientResource::collection($patients);
     }
 
     /**
