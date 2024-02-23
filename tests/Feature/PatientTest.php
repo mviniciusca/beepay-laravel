@@ -3,19 +3,41 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+// use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Tests\TestCase;
 
 class PatientTest extends TestCase
 {
+    use RefreshDatabase;
 
     /** @test **/
-    public function it_should_detected_patients_table_on_application_core(): void
+    public function it_should_detects_patients_table_on_application_core(): void
     {
         $database = DB::connection()->getSchemaBuilder()->hasTable('patients');
         $this->assertTrue($database);
+    }
+
+    /** @test **/
+    public function it_should_detects_addresses_table_on_application_core(): void
+    {
+        $database = DB::connection()->getSchemaBuilder()->hasTable('addresses');
+        $this->assertTrue($database);
+    }
+
+    /** @test **/
+    public function it_should_find_api_post_route(): void
+    {
+        $this->assertTrue(Route::has('api.store.patient'));
+    }
+
+    /** @test **/
+    public function it_should_deny_access_to_post_route(): void
+    {
+        $this->getJson(route('api.store.patient'))
+            ->assertStatus(Response::HTTP_METHOD_NOT_ALLOWED);
     }
 
     /** @test **/
@@ -37,6 +59,7 @@ class PatientTest extends TestCase
             'city' => 'Big City',
             'state' => 'BC',
         ])
+            ->assertValid()
             ->assertJson([
                 'message' => 'Patient created successfully!',
             ])
