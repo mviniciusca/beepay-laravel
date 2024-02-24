@@ -22,7 +22,7 @@ class PatientResource extends JsonResource
             'cpf' => $this->cpf,
             'cns' => $this->cns,
             'picture' => $this->picture,
-            'address' => [
+            'address' => $this->when(request()->get('with_address'), [
                 'zip_code' => $this->address->zip_code,
                 'street' => $this->address->street,
                 'number' => $this->address->number,
@@ -30,7 +30,7 @@ class PatientResource extends JsonResource
                 'district' => $this->address->district,
                 'city' => $this->address->city,
                 'state' => $this->address->state,
-            ],
+            ]),
         ];
     }
 }
