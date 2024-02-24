@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\PatientResource;
 use App\Models\Address;
 use App\Models\Patient;
+use App\Rules\CPFValidation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -32,7 +33,7 @@ class PatientController extends Controller
             'full_name' => ['required', 'string', 'max:255'],
             'mother_name' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],
-            'cpf' => ['required', 'string', 'max:11', 'unique:patients'],
+            'cpf' => ['required', 'unique:patients', new CPFValidation],
             'cns' => ['required', 'string', 'max:15', 'unique:patients'],
             'picture' => ['nullable', 'string', 'max:255'],
         ]);
@@ -101,7 +102,7 @@ class PatientController extends Controller
             'full_name' => ['required', 'string', 'max:255'],
             'mother_name' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],
-            'cpf' => ['required', 'string', 'max:11', 'unique:patients,cpf,' . $id],
+            'cpf' => ['required', 'string', 'max:11', new CPFValidation, 'unique:patients,cpf,' . $id],
             'cns' => ['required', 'string', 'max:15', 'unique:patients,cns,' . $id],
             'picture' => ['nullable', 'string', 'max:255'],
         ]);
