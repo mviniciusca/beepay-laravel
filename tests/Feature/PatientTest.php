@@ -166,8 +166,9 @@ class PatientTest extends TestCase
     public function it_should_show_a_patient_by_id(): void
     {
         $this->withoutExceptionHandling();
-        $patient = Patient::factory()->create();
+        $patient = Patient::factory()->create(['full_name' => 'Marcos Coelho']);
         $this->getJson(route('api.show.patient', $patient->id))
+            ->assertValid()
             ->assertStatus(Response::HTTP_OK);
     }
 
@@ -176,9 +177,9 @@ class PatientTest extends TestCase
     {
         $this->getJson(route('api.show.patient', 999))
             ->assertJson([
-                'message' => 'Attempt to read property "id" on null'
+                'message' => 'Validation failed.'
             ])
-            ->assertStatus(Response::HTTP_INTERNAL_SERVER_ERROR);
+            ->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 
     /** @test **/
