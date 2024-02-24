@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         Patient::factory()
             ->count(10)
-            ->hasAddress()
             ->create();
     }
 }

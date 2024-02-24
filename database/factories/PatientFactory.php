@@ -30,6 +30,7 @@ class PatientFactory extends Factory
     {
         return $this->afterCreating(function (\App\Models\Patient $patient) {
             $patient->address()->create([
+                'patient_id' => $patient->id,
                 'zip_code' => $this->faker->postcode,
                 'street' => $this->faker->streetName,
                 'number' => $this->faker->buildingNumber,
