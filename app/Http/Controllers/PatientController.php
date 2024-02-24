@@ -10,8 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class PatientController extends Controller
 {
-
-
     /**
      * Display a listing of the patients.
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
