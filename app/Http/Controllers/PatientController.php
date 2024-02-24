@@ -34,8 +34,8 @@ class PatientController extends Controller
             'full_name' => ['required', 'string', 'max:255'],
             'mother_name' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],
-            'cpf' => ['required', 'unique:patients', new CPFValidation],
-            'cns' => ['required', 'integer', new CNSValidation],
+            'cpf' => ['required', 'integer', 'unique:patients', new CPFValidation],
+            'cns' => ['required', 'integer', 'unique:patients', new CNSValidation],
             'picture' => ['nullable', 'string', 'max:255'],
         ]);
 
@@ -104,7 +104,7 @@ class PatientController extends Controller
             'mother_name' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],
             'cpf' => ['required', 'string', 'max:11', new CPFValidation, 'unique:patients,cpf,' . $id],
-            'cns' => ['required', 'string', 'max:15', 'unique:patients,cns,' . $id],
+            'cns' => ['required', 'string', 'max:15', new CNSValidation, 'unique:patients,cns,' . $id],
             'picture' => ['nullable', 'string', 'max:255'],
         ]);
 
