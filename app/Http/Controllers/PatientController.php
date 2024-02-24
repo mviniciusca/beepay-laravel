@@ -18,7 +18,9 @@ class PatientController extends Controller
      */
     public function index()
     {
-        $patients = Patient::all();
+        $patients = Patient::query()
+            ->select()
+            ->paginate(10);
         return PatientResource::collection($patients);
     }
 
@@ -95,50 +97,28 @@ class PatientController extends Controller
         ], 200);
     }
 
-    /**
-     * Update the specified patient in database
-     * @param Request $request
-     * @param Patient $patient
-     * @return \Illuminate\Http\JsonResponse
-     */
 
-    public function update(Request $request, $id)
+
+    public function update($id)
     {
-        $patient = Patient::find($id);
-        $patient_data = Validator::make($request->all(), [
-            'full_name' => ['required', 'string', 'max:255'],
-            'mother_name' => ['required', 'string', 'max:255'],
-            'birth_date' => ['required', 'date'],
-            'cpf' => ['required', 'string', 'max:11', 'unique:patients,cpf,'],
-            'cns' => ['required', 'string', 'max:15', 'unique:patients,cns,'],
-            'picture' => ['nullable', 'string', 'max:255'],
-        ]);
-        if ($patient_data->fails()) {
-            return response()->json([
-                'message' => 'Validation failed.',
-                'errors' => $patient_data->errors()
-            ], 400);
-        }
-        $patient->update($patient_data->validated());
+        $patient_data = request()->only(['full_name', 'mother_name', 'birth_date', 'cpf', 'cns', 'picture']);
+        $patient_address = request()->only(['zip_code', 'street', 'number', 'complement', 'district', 'city', 'state']);
 
-        $patient_address_data = Validator::make($request->all(), [
-            'zip_code' => ['required', 'string', 'max:8'],
-            'street' => ['required', 'string', 'max:255'],
-            'number' => ['required', 'string', 'max:20'],
-            'complement' => ['required', 'string', 'max:255'],
-            'district' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'state' => ['required', 'string', 'max:2'],
-        ]);
-        if ($patient_address_data->fails()) {
-            return response()->json([
-                'message' => 'Validation failed.',
-                'errors' => $patient_address_data->errors()
-            ], 400);
-        }
-        $patient->addresses()->update($patient_address_data->validated());
+        Patient::query()->where('id', $id)->update($patient_data);
+
+        Address::query()->where('patient_id', $id)->update($patient_address);
+
         return response()->json([
             'message' => 'Patient updated successfully!',
         ], 200);
+    }
+
+    /**
+     * Display the specified patient
+     * @return PatientResource
+     */
+    public function show($id)
+    {
+        return new PatientResource(Patient::query()->where('id', $id)->first());
     }
 }

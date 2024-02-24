@@ -134,7 +134,6 @@ class PatientTest extends TestCase
         $this->assertDatabaseMissing('patients', ['id' => $patient->id]);
     }
 
-
     /** @test **/
     public function it_should_update_patient_information_on_database(): void
     {
@@ -161,5 +160,44 @@ class PatientTest extends TestCase
             ->assertStatus(Response::HTTP_OK);
 
         $this->assertDatabaseHas('patients', ['full_name' => 'John Doe Updated']);
+    }
+
+    /** @test **/
+    public function it_should_show_a_patient_by_id(): void
+    {
+        $this->withoutExceptionHandling();
+        $patient = Patient::factory()->create();
+        $this->getJson(route('api.show.patient', $patient->id))
+            ->assertStatus(Response::HTTP_OK);
+    }
+
+    /** @test **/
+    public function it_should_not_show_a_patient_by_invalid_id(): void
+    {
+        $this->getJson(route('api.show.patient', 999))
+            ->assertJson([
+                'message' => 'Attempt to read property "id" on null'
+            ])
+            ->assertStatus(Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
+
+    /** @test **/
+    public function it_should_not_delete_a_patient_by_invalid_id(): void
+    {
+        $this->deleteJson(route('api.destroy.patient', 999))
+            ->assertJson([
+                'message' => 'Validation failed.'
+            ])
+            ->assertStatus(Response::HTTP_BAD_REQUEST);
+    }
+
+    /** @test **/
+    public function it_should_not_update_a_patient_by_invalid_id(): void
+    {
+        $this->putJson(route('api.update.patient', 999), [])
+            ->assertJson([
+                'message' => 'Validation failed.'
+            ])
+            ->assertStatus(Response::HTTP_BAD_REQUEST);
     }
 }
