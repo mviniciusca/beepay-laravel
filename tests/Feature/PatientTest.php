@@ -53,7 +53,7 @@ class PatientTest extends TestCase
             'mother_name' => 'Jane Doe',
             'birth_date' => '1990-01-01',
             'cpf' => '12345678909',
-            'cns' => '123456789012345',
+            'cns' => '182698024790004',
             'picture' => 'photo.jpg',
         ])
             ->assertJsonValidationErrors([
@@ -76,7 +76,7 @@ class PatientTest extends TestCase
             'mother_name' => 'Jane Doe',
             'birth_date' => '1990-01-01',
             'cpf' => '12345678909',
-            'cns' => '123456789012345',
+            'cns' => '913197571380004',
             'picture' => 'photo.jpg',
             'zip_code' => '12345678',
             'street' => 'Main Street',
@@ -97,7 +97,7 @@ class PatientTest extends TestCase
             'mother_name' => 'Jane Doe',
             'birth_date' => '1990-01-01',
             'cpf' => '12345678909',
-            'cns' => '123456789012345',
+            'cns' => '913197571380004',
             'picture' => 'photo.jpg',
         ]);
 
@@ -144,7 +144,7 @@ class PatientTest extends TestCase
             'mother_name' => 'Jane Doe',
             'birth_date' => '1990-01-01',
             'cpf' => '12345678909',
-            'cns' => '123456789012345',
+            'cns' => '182698024790004',
             'picture' => 'photo.jpg',
             'zip_code' => '12345678',
             'street' => 'Main Street',
