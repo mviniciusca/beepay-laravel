@@ -10,6 +10,8 @@ class CepController extends Controller
     public function show($cep)
     {
 
+        $this->checkRedisConnection();
+
         $cep = preg_replace('/[^0-9]/', '', $cep);
 
         if (strlen($cep) !== 8) {
@@ -39,6 +41,16 @@ class CepController extends Controller
             return response()->json([
                 'message' => 'Error to reach API and find CEP.'
             ], 500);
+        }
+    }
+
+    public function checkRedisConnection()
+    {
+        try {
+            Redis::ping();
+            return response()->json(['message' => 'Redis is working.']);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Redis is not working.']);
         }
     }
 }

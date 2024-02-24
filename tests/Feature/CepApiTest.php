@@ -9,10 +9,24 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CepApiTest extends TestCase
 {
+
+    /** @test */
+    public function it_should_detects_redis_connection(): void
+    {
+        $this->assertTrue(env('REDIS_HOST') !== null);
+    }
+
     /** @test **/
     public function it_should_check_if_cep_get_route_exists(): void
     {
         $this->assertTrue(Route::has('api.cep.show'));
+    }
+
+    /** @test **/
+    public function it_should_check_if_cep_get_route_is_up(): void
+    {
+        $response = $this->get(route('api.cep.show', '01001000'));
+        $response->assertStatus(200);
     }
 
     /** @test **/
