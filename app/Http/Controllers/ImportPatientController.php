@@ -10,14 +10,16 @@ class ImportPatientController extends Controller
 {
     public function import(Request $request)
     {
-        //dd($request->only('file'));
 
-        $file_validation = Validator::make($request->all(), [
-            'file' => ['required', 'file', 'mimes:csv,txt'],
+        $file_validation = Validator::make($request->only('file'), [
+            'file' => ['required', 'file', 'mimes:csv,txt', 'max:2048'],
         ]);
 
         if ($file_validation->fails()) {
-            return response()->json(['message' => 'Invalid file'], 400);
+            return response()->json([
+                'message' => 'Error on validation. Please, check your file.',
+                'errors' => $file_validation->errors(),
+            ], 400);
         }
 
         $file = $file_validation->validated()['file'];
@@ -30,8 +32,8 @@ class ImportPatientController extends Controller
 
         foreach ($fileContents as $data) {
 
-            $data['cpf'] = preg_replace('/[^0-9]/', '', $data['cpf']);
-            $data['cns'] = preg_replace('/[^0-9]/', '', $data['cns']);
+            //$data['cpf'] = preg_replace('/[^0-9]/', '', $data['cpf']);
+            // $data['cns'] = preg_replace('/[^0-9]/', '', $data['cns']);
 
             $data_validation = Validator::make($data, [
                 'full_name' => ['required', 'string', 'max:255'],
