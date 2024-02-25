@@ -18,11 +18,19 @@ class ImportPatientTest extends TestCase
     /** @test **/
     public function it_should_allow_to_upload_a_csv_file(): void
     {
-        $response = $this->postJson(route('api.import.patient'), [
-            'file' => 'file.csv'
-        ]);
-
-        $response->assertStatus(200);
+        $this->postJson(route('api.import.patient'), [
+            'file' => 'test.csv'
+        ])
+            ->assertValid();
     }
+
+    /** @test **/
+    public function it_should_return_file_is_required(): void
+    {
+        $this->postJson(route('api.import.patient'))
+            ->assertJsonMissingValidationErrors('file')
+            ->assertStatus(400);
+    }
+
 
 }

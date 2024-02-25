@@ -10,19 +10,17 @@ class ImportPatientController extends Controller
 {
     public function import(Request $request)
     {
-        if (!$request->hasFile('file')) {
-            return response()->json(['message' => 'File not found'], 404);
-        }
+        //dd($request->only('file'));
 
-        $file = Validator::make($request->all(), [
-            'file' => ['required', 'file', 'mimes:csv,txt']
+        $file_validation = Validator::make($request->all(), [
+            'file' => ['required', 'file', 'mimes:csv,txt'],
         ]);
 
-        if ($file->fails()) {
+        if ($file_validation->fails()) {
             return response()->json(['message' => 'Invalid file'], 400);
         }
 
-        $file = $file->validated()['file'];
+        $file = $file_validation->validated()['file'];
 
         $fileContents = $this->csvHandle($file);
 
