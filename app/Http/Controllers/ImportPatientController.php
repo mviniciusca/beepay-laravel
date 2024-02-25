@@ -5,12 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Address;
 use App\Models\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ImportPatientController extends Controller
 {
     public function import(Request $request)
     {
-        $file = $request->file('file');
+        if (!$request->hasFile('file')) {
+            return response()->json(['message' => 'File not found'], 404);
+        }
+
+        $file = Validator::make($request->all(), [
+            'file' => 'required|file|mimes:csv,txt'
+        ]);
+
+        if ($file->fails()) {
+            return response()->json(['message' => 'Invalid file'], 400);
+        }
+
+        $file = $file->validated()['file'];
+
         $fileContents = file($file->getPathname());
 
         foreach ($fileContents as $line) {
