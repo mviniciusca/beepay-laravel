@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Jobs\ImportPatientJob;
-use App\Models\Address;
-use App\Models\Patient;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
