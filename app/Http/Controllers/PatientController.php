@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PatientResource;
 use App\Models\Address;
 use App\Models\Patient;
 use App\Rules\CNSValidation;
 use App\Rules\CPFValidation;
 use Illuminate\Http\Request;
+use App\Http\Resources\PatientResource;
 use Illuminate\Support\Facades\Validator;
 
 class PatientController extends Controller
@@ -18,9 +18,9 @@ class PatientController extends Controller
      * @return PatientResource
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index(): mixed
+    public function index(Request $request)
     {
-        if (request()->has('search')) {
+        if ($request->has('search')) {
             $data = Validator::make(request()->all(), [
                 'search' => ['required', 'string', 'max:255'],
             ]);
@@ -60,9 +60,9 @@ class PatientController extends Controller
      * Create and save a new patient on database
      * @return mixed|\Illuminate\Http\JsonResponse
      */
-    public function store()
+    public function store(Request $request)
     {
-        $patient_data = Validator::make(request()->all(), [
+        $patient_data = Validator::make($request->all(), [
             'full_name' => ['required', 'string', 'max:255'],
             'mother_name' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],
@@ -80,7 +80,7 @@ class PatientController extends Controller
 
         $patient = Patient::create($patient_data->validated());
 
-        $patient_address_data = Validator::make(request()->all(), [
+        $patient_address_data = Validator::make($request->all(), [
             'zip_code' => ['required', 'string', 'max:8'],
             'street' => ['required', 'string', 'max:255'],
             'number' => ['required', 'string', 'max:20'],
@@ -117,6 +117,7 @@ class PatientController extends Controller
         $data = Validator::make(['id' => $id], [
             'id' => ['required', 'integer', 'exists:patients,id'],
         ]);
+
         if ($data->fails()) {
             return response()->json([
                 'message' => 'Validation failed.',
@@ -129,9 +130,9 @@ class PatientController extends Controller
         ], 200);
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
-        $patient_data = Validator::make(request()->all(), [
+        $patient_data = Validator::make($request->all(), [
             'full_name' => ['required', 'string', 'max:255'],
             'mother_name' => ['required', 'string', 'max:255'],
             'birth_date' => ['required', 'date'],
@@ -146,9 +147,11 @@ class PatientController extends Controller
                 'errors' => $patient_data->errors()
             ], 400);
         }
-        Patient::query()->where('id', $id)->update($patient_data->validated());
+        Patient::query()
+            ->where('id', $id)
+            ->update($patient_data->validated());
 
-        $patient_address_data = Validator::make(request()->all(), [
+        $patient_address_data = Validator::make($request->all(), [
             'zip_code' => ['required', 'string', 'max:8'],
             'street' => ['required', 'string', 'max:255'],
             'number' => ['required', 'string', 'max:20'],
@@ -163,7 +166,9 @@ class PatientController extends Controller
                 'errors' => $patient_address_data->errors()
             ], 400);
         }
-        Address::query()->where('patient_id', $id)->update($patient_address_data->validated());
+        Address::query()
+            ->where('patient_id', $id)
+            ->update($patient_address_data->validated());
 
         return response()->json([
             'message' => 'Patient updated successfully!',
@@ -185,6 +190,8 @@ class PatientController extends Controller
                 'errors' => $data->errors()
             ], 400);
         }
-        return new PatientResource(Patient::query()->where('id', $data->validated())->first());
+        return new PatientResource(Patient::
+            query()
+            ->where('id', $data->validated())->first());
     }
 }

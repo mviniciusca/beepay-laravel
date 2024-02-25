@@ -113,11 +113,22 @@ class PatientTest extends TestCase
     }
 
     /** @test **/
-    public function it_should_get_all_patients(): void
+    public function it_should_get_all_patients_if_exists(): void
     {
         $this->withoutExceptionHandling();
+        Patient::factory()->create();
         $this->getJson(route('api.index.patient'))
             ->assertStatus(Response::HTTP_OK);
+    }
+
+    /** @test **/
+    public function it_should_not_find_patients_on_default_list(): void
+    {
+        $this->getJson(route('api.index.patient'))
+            ->assertJson([
+                'message' => 'No patients found.',
+            ])
+            ->assertStatus(Response::HTTP_NOT_FOUND);
     }
 
     /** @test **/
