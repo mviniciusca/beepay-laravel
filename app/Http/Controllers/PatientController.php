@@ -13,15 +13,40 @@ use Illuminate\Support\Facades\Validator;
 class PatientController extends Controller
 {
     /**
-     * Display a listing of the patients.
+     * Display a listing of the patients
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
-        $patients = Patient::query()
-            ->select()
-            ->paginate(10);
-        return PatientResource::collection($patients);
+        if (request()->has('search')) {
+            $data = Validator::make(request()->all(), [
+                'search' => ['required', 'string', 'max:255'],
+            ]);
+            if ($data->fails()) {
+                return response()->json([
+                    'message' => 'Validation failed.',
+                    'errors' => $data->errors()
+                ], 400);
+            }
+            if (
+                Patient::query()
+                    ->where('full_name', 'like', '%' . $data->validated()['search'] . '%')
+                    ->count() == 0
+            )
+                return response()->json([
+                    'message' => 'No patients found.',
+                ], 404);
+            return PatientResource::collection(
+                Patient::query()
+                    ->where('full_name', 'like', '%' . $data->validated()['search'] . '%')
+                    ->get()
+            );
+        }
+        if (Patient::count() == 0 || Patient::all() == null)
+            return response()->json([
+                'message' => 'No patients found.',
+            ], 404);
+        return PatientResource::collection(Patient::all());
     }
 
     /**
