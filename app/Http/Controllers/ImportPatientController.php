@@ -60,7 +60,7 @@ class ImportPatientController extends Controller
                     ]
                 ], 400);
             }
-            ImportPatientJob::dispatch($data);
+            ImportPatientJob::dispatch($data)->delay(now()->addSeconds(5));
         }
         return response()->json(['message' => 'File imported successfully'], 200);
     }
