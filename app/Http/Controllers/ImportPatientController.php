@@ -34,8 +34,6 @@ class ImportPatientController extends Controller
                     'state' => $data[12],
                     'patient_id' => $patient->id,
                 ]);
-            } else {
-                return response()->json(['message' => 'Invalid file format'], 400);
             }
         }
         return response()->json(['message' => 'File imported successfully'], 200);
