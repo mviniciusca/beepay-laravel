@@ -15,8 +15,10 @@ class PatientController extends Controller
     /**
      * Display a listing of the patients
      * @return \Illuminate\Http\JsonResponse
+     * @return PatientResource
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function index()
+    public function index(): mixed
     {
         if (request()->has('search')) {
             $data = Validator::make(request()->all(), [
@@ -55,7 +57,7 @@ class PatientController extends Controller
     }
 
     /**
-     * Create a new patient on database
+     * Create and save a new patient on database
      * @return mixed|\Illuminate\Http\JsonResponse
      */
     public function store()
