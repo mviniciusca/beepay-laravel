@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\ImportPatientJob;
 use App\Models\Address;
 use App\Models\Patient;
 use Illuminate\Http\Request;
@@ -61,25 +62,7 @@ class ImportPatientController extends Controller
                     ]
                 ], 400);
             }
-
-            $patient = Patient::create([
-                'full_name' => $data['full_name'],
-                'mother_name' => $data['mother_name'],
-                'birth_date' => $data['birth_date'],
-                'cpf' => $data['cpf'],
-                'cns' => $data['cns'],
-                'picture' => $data['picture'],
-            ]);
-            Address::create([
-                'zip_code' => $data['zip_code'],
-                'street' => $data['street'],
-                'number' => $data['number'],
-                'complement' => $data['complement'],
-                'district' => $data['district'],
-                'city' => $data['city'],
-                'state' => $data['state'],
-                'patient_id' => $patient->id,
-            ]);
+            ImportPatientJob::dispatch($data);
         }
         return response()->json(['message' => 'File imported successfully'], 200);
     }
