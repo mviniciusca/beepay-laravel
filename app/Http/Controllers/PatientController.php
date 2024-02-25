@@ -71,15 +71,6 @@ class PatientController extends Controller
             'picture' => ['nullable', 'string', 'max:255'],
         ]);
 
-        if ($patient_data->fails()) {
-            return response()->json([
-                'message' => 'Validation failed.',
-                'errors' => $patient_data->errors()
-            ], 400);
-        }
-
-        $patient = Patient::create($patient_data->validated());
-
         $patient_address_data = Validator::make($request->all(), [
             'zip_code' => ['required', 'string', 'max:8'],
             'street' => ['required', 'string', 'max:255'],
@@ -90,6 +81,13 @@ class PatientController extends Controller
             'state' => ['required', 'string', 'max:2'],
         ]);
 
+        if ($patient_data->fails()) {
+            return response()->json([
+                'message' => 'Validation failed.',
+                'errors' => $patient_data->errors()
+            ], 400);
+        }
+
         if ($patient_address_data->fails()) {
             return response()->json([
                 'message' => 'Validation failed.',
@@ -97,9 +95,9 @@ class PatientController extends Controller
             ], 400);
         }
 
+        $patient = Patient::create($patient_data->validated());
         $patient_address = $patient_address_data->validated();
         $patient_address['patient_id'] = $patient->id;
-
         Address::create($patient_address);
 
         return response()->json([
