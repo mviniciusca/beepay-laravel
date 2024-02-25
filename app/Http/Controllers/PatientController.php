@@ -14,7 +14,7 @@ class PatientController extends Controller
 {
     /**
      * Display a listing of the patients
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
@@ -22,31 +22,36 @@ class PatientController extends Controller
             $data = Validator::make(request()->all(), [
                 'search' => ['required', 'string', 'max:255'],
             ]);
+
             if ($data->fails()) {
                 return response()->json([
                     'message' => 'Validation failed.',
                     'errors' => $data->errors()
                 ], 400);
             }
-            if (
-                Patient::query()
-                    ->where('full_name', 'like', '%' . $data->validated()['search'] . '%')
-                    ->count() == 0
-            )
+
+            $search = $data->validated()['search'];
+
+            $patients = Patient::query()
+                ->where('full_name', 'like', '%' . $search . '%')
+                ->get();
+
+            if ($patients->isEmpty()) {
                 return response()->json([
                     'message' => 'No patients found.',
                 ], 404);
-            return PatientResource::collection(
-                Patient::query()
-                    ->where('full_name', 'like', '%' . $data->validated()['search'] . '%')
-                    ->get()
-            );
+            }
+            return PatientResource::collection($patients);
         }
-        if (Patient::count() == 0 || Patient::all() == null)
+
+        $patients = Patient::get();
+
+        if ($patients->isEmpty()) {
             return response()->json([
                 'message' => 'No patients found.',
             ], 404);
-        return PatientResource::collection(Patient::all());
+        }
+        return PatientResource::collection($patients);
     }
 
     /**
