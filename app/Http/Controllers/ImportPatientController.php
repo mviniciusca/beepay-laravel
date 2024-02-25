@@ -32,8 +32,8 @@ class ImportPatientController extends Controller
 
         foreach ($fileContents as $data) {
 
-            //$data['cpf'] = preg_replace('/[^0-9]/', '', $data['cpf']);
-            // $data['cns'] = preg_replace('/[^0-9]/', '', $data['cns']);
+            $data['cpf'] = $this->formatCpf($data['cpf']);
+            $data['cns'] = $this->formatCns($data['cns']);
 
             $data_validation = Validator::make($data, [
                 'full_name' => ['required', 'string', 'max:255'],
@@ -65,9 +65,7 @@ class ImportPatientController extends Controller
         return response()->json(['message' => 'File imported successfully'], 200);
     }
 
-
     /**
-     * Summary of csvHandle
      * This function will handle the csv file
      * Checks if has header and if has, create a array combine with the header and the data
      */
@@ -85,6 +83,26 @@ class ImportPatientController extends Controller
             }
         }
         return $data;
+    }
+
+    /**
+     * Format CPF and remove possible special characters or mask
+     * @param mixed $cpf
+     * @return array|string|null
+     */
+    public function formatCpf($cpf)
+    {
+        return preg_replace('/[^0-9]/', '', $cpf);
+    }
+
+    /**
+     * Format CNS and remove possible special characters or mask
+     * @param mixed $cns
+     * @return array|string|null
+     */
+    public function formatCns($cns)
+    {
+        return preg_replace('/[^0-9]/', '', $cns);
     }
 }
 
