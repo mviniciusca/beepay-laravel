@@ -22,9 +22,7 @@ class PatientController extends Controller
     {
         if ($request->has('search')) {
             $data = Validator::make(request()->all(), [
-                'search' => ['required', 'string', 'min:2', 'max:200'],
-                'order' => ['nullable', 'string', 'in:asc,desc'],
-                'show' => ['nullable', 'integer', 'min:1', 'max:100'],
+                'search' => ['required', 'string', 'max:140'],
             ]);
 
             if ($data->fails()) {
@@ -35,13 +33,10 @@ class PatientController extends Controller
             }
 
             $search = $data->validated()['search'];
-            $order = $data->validated()['order'] ?? 'asc';
-            $show = $data->validated()['show'] ?? 10;
 
             $patients = Patient::query()
                 ->where('full_name', 'like', '%' . $search . '%')
-                ->orderBy('full_name', $order)
-                ->paginate($show);
+                ->paginate(10);
 
             if ($patients->isEmpty()) {
                 return response()->json([
