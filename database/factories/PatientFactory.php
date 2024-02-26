@@ -20,8 +20,8 @@ class PatientFactory extends Factory
             'full_name' => $this->faker->name,
             'mother_name' => $this->faker->name,
             'birth_date' => $this->faker->date(),
-            'cpf' => $this->faker->unique()->numberBetween(10000000000, 99999999999),
-            'cns' => $this->faker->unique()->numberBetween(100000000000000, 999999999999999),
+            'cpf' => str_replace(['.', '-'], '', $this->faker->unique()->cpf),
+            'cns' => $this->faker->unique()->numerify('###############'),
             'picture' => $this->faker->imageUrl(),
         ];
     }

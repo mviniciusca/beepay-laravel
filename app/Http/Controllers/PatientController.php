@@ -36,7 +36,7 @@ class PatientController extends Controller
 
             $patients = Patient::query()
                 ->where('full_name', 'like', '%' . $search . '%')
-                ->get();
+                ->paginate(10);
 
             if ($patients->isEmpty()) {
                 return response()->json([
@@ -46,7 +46,8 @@ class PatientController extends Controller
             return PatientResource::collection($patients);
         }
 
-        $patients = Patient::get();
+        $patients = Patient::query()
+            ->paginate(10);
 
         if ($patients->isEmpty()) {
             return response()->json([
@@ -81,21 +82,15 @@ class PatientController extends Controller
             'state' => ['required', 'string', 'max:2'],
         ]);
 
-        if ($patient_data->fails()) {
+        if ($patient_data->fails() || $patient_address_data->fails()) {
             return response()->json([
                 'message' => 'Validation failed.',
-                'errors' => $patient_data->errors()
-            ], 400);
-        }
-
-        if ($patient_address_data->fails()) {
-            return response()->json([
-                'message' => 'Validation failed.',
-                'errors' => $patient_address_data->errors()
+                'errors' => $patient_data->errors()->merge($patient_address_data->errors())
             ], 400);
         }
 
         $patient = Patient::create($patient_data->validated());
+
         $patient_address = $patient_address_data->validated();
         $patient_address['patient_id'] = $patient->id;
         Address::create($patient_address);
@@ -108,7 +103,6 @@ class PatientController extends Controller
     /**
      * Remove the specified patient from database
      * @return \Illuminate\Http\JsonResponse
-     * @throws \Exception
      */
     public function destroy($id)
     {
@@ -122,7 +116,9 @@ class PatientController extends Controller
                 'errors' => $data->errors()
             ], 400);
         }
+
         Patient::destroy($data->validated());
+
         return response()->json([
             'message' => 'Patient deleted successfully!',
         ], 200);
@@ -139,16 +135,6 @@ class PatientController extends Controller
             'picture' => ['nullable', 'string', 'max:255'],
         ]);
 
-        if ($patient_data->fails()) {
-            return response()->json([
-                'message' => 'Validation failed.',
-                'errors' => $patient_data->errors()
-            ], 400);
-        }
-        Patient::query()
-            ->where('id', $id)
-            ->update($patient_data->validated());
-
         $patient_address_data = Validator::make($request->all(), [
             'zip_code' => ['required', 'string', 'max:8'],
             'street' => ['required', 'string', 'max:255'],
@@ -158,12 +144,18 @@ class PatientController extends Controller
             'city' => ['required', 'string', 'max:255'],
             'state' => ['required', 'string', 'max:2'],
         ]);
-        if ($patient_address_data->fails()) {
+
+        if ($patient_data->fails() || $patient_address_data->fails()) {
             return response()->json([
                 'message' => 'Validation failed.',
-                'errors' => $patient_address_data->errors()
+                'errors' => $patient_data->errors()->merge($patient_address_data->errors())
             ], 400);
         }
+
+        Patient::query()
+            ->where('id', $id)
+            ->update($patient_data->validated());
+
         Address::query()
             ->where('patient_id', $id)
             ->update($patient_address_data->validated());
@@ -188,8 +180,9 @@ class PatientController extends Controller
                 'errors' => $data->errors()
             ], 400);
         }
-        return new PatientResource(Patient::
-            query()
-            ->where('id', $data->validated())->first());
+        return new PatientResource(
+            Patient::query()
+                ->where('id', $data->validated())->first()
+        );
     }
 }
