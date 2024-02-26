@@ -28,6 +28,8 @@ php artisan test
 ### Postman Documentation
 https://documenter.getpostman.com/view/2124609/2sA2rDwgEx
 
+ou no arquivo `Beepay-Laravel.postman_collection.json` na raiz do projeto.
+
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

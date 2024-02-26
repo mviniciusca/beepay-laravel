@@ -1,0 +1,3255 @@
+{
+	"info": {
+		"_postman_id": "9134e63e-f8f5-407b-9c66-40fe69ffe241",
+		"name": "Beepay-Laravel",
+		"description": "Back-end PHP - Laravel\n\nThis is a challenge for create endpoints with Laravel for Beepay.\n\nCreated by Marcos Vinícius Coelho\n\n[mviniciusca@gmail.com](https://mailto:mviniciusca@gmail.com)\n\n[github.com/mviniciusca](https://github.com/mviniciusca)\n\nBefore Test:\n\n• Run Laravel Server\n\n• Enable MySQL and Redis\n\nAntes de Testar:\n\n• Rode a Aplicação Laravel\n\n• Habilite MySQL e Redis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2124609"
+	},
+	"item": [
+		{
+			"name": "Get All Patients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/patients",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"patients"
+					]
+				},
+				"description": "List patients on database.\n\nLista os pacientes no banco de dados."
+			},
+			"response": [
+				{
+					"name": "List All Patients on Database if they Exists",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:16:23 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:16:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"full_name\": \"Sra. Iasmin Valência Gil Sobrinho\",\n            \"mother_name\": \"Késia Delatorre\",\n            \"birth_date\": \"1981-05-03\",\n            \"cpf\": \"03021906435\",\n            \"cns\": \"287514460748086\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/0077dd?text=qui\"\n        },\n        {\n            \"id\": 2,\n            \"full_name\": \"Adriano Serrano\",\n            \"mother_name\": \"Andréa Medina Abreu Neto\",\n            \"birth_date\": \"2003-11-10\",\n            \"cpf\": \"19176736393\",\n            \"cns\": \"762105580546489\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00dd88?text=tempora\"\n        },\n        {\n            \"id\": 3,\n            \"full_name\": \"Melissa Saraiva Abreu Jr.\",\n            \"mother_name\": \"Dr. Francisco Burgos Batista Jr.\",\n            \"birth_date\": \"1982-01-14\",\n            \"cpf\": \"85676829320\",\n            \"cns\": \"092184210695810\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/002277?text=consectetur\"\n        },\n        {\n            \"id\": 4,\n            \"full_name\": \"Dr. Adriel Furtado Camacho Neto\",\n            \"mother_name\": \"Cristiana Mel Carrara\",\n            \"birth_date\": \"1990-03-03\",\n            \"cpf\": \"97506249472\",\n            \"cns\": \"113811980639676\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00dd66?text=aut\"\n        },\n        {\n            \"id\": 5,\n            \"full_name\": \"Sr. Sebastião Christopher Ortega\",\n            \"mother_name\": \"Gabrielly Flores de Freitas\",\n            \"birth_date\": \"2017-07-18\",\n            \"cpf\": \"61867394146\",\n            \"cns\": \"429951123686874\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00dd88?text=eveniet\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/v1/patients\",\n        \"per_page\": 10,\n        \"to\": 5,\n        \"total\": 5\n    }\n}"
+				},
+				{
+					"name": "Show Patient wth Address",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients?with_address=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "with_address",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 02:30:58 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 02:30:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"full_name\": \"Marco Nero de Aguiar Jr.\",\n            \"mother_name\": \"Inácio Dias\",\n            \"birth_date\": \"1994-11-23\",\n            \"cpf\": \"70915611120\",\n            \"cns\": \"639179761075133\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00ff11?text=laboriosam\",\n            \"address\": {\n                \"zip_code\": \"16238-045\",\n                \"street\": \"R. Rosana Zamana\",\n                \"number\": \"2\",\n                \"complement\": \"Apto 148\",\n                \"district\": \"São Eva do Leste\",\n                \"city\": \"Andres do Leste\",\n                \"state\": \"PI\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"full_name\": \"Sr. Adriano Ortiz Sobrinho\",\n            \"mother_name\": \"Dr. Josefina Fabiana Ávila Filho\",\n            \"birth_date\": \"1996-01-31\",\n            \"cpf\": \"52485114021\",\n            \"cns\": \"016449510990817\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/009988?text=deserunt\",\n            \"address\": {\n                \"zip_code\": \"42225-856\",\n                \"street\": \"R. Camila Paz\",\n                \"number\": \"566\",\n                \"complement\": \"Fundos\",\n                \"district\": \"Santa Adriel\",\n                \"city\": \"Thiago d'Oeste\",\n                \"state\": \"PI\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"full_name\": \"Silvana Lovato Jr.\",\n            \"mother_name\": \"Bernardo Teles Neto\",\n            \"birth_date\": \"2015-09-06\",\n            \"cpf\": \"28088101999\",\n            \"cns\": \"670360654137881\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/009900?text=error\",\n            \"address\": {\n                \"zip_code\": \"11357-937\",\n                \"street\": \"R. Dener Neves\",\n                \"number\": \"3348\",\n                \"complement\": \"Anexo\",\n                \"district\": \"Martines do Norte\",\n                \"city\": \"Porto Afonso do Sul\",\n                \"state\": \"BA\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"full_name\": \"Artur Erik Arruda Jr.\",\n            \"mother_name\": \"Cristóvão Montenegro Aragão Jr.\",\n            \"birth_date\": \"2000-10-24\",\n            \"cpf\": \"13711041744\",\n            \"cns\": \"438131669420456\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/004488?text=aspernatur\",\n            \"address\": {\n                \"zip_code\": \"36524-610\",\n                \"street\": \"Rua Reinaldo Deverso\",\n                \"number\": \"17\",\n                \"complement\": \"918º Andar\",\n                \"district\": \"Porto Pedro\",\n                \"city\": \"Porto Denis\",\n                \"state\": \"MG\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"full_name\": \"Dr. André Jean Galindo\",\n            \"mother_name\": \"Dr. Karina Santos\",\n            \"birth_date\": \"1970-08-29\",\n            \"cpf\": \"56597620771\",\n            \"cns\": \"439630650983627\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/004400?text=dolorem\",\n            \"address\": {\n                \"zip_code\": \"48388-637\",\n                \"street\": \"Travessa Márcio\",\n                \"number\": \"62615\",\n                \"complement\": \"Apto 8\",\n                \"district\": \"Felipe do Norte\",\n                \"city\": \"São Eduardo do Norte\",\n                \"state\": \"RS\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"full_name\": \"Tatiana Lourenço Correia Sobrinho\",\n            \"mother_name\": \"Sra. Madalena Marin Neto\",\n            \"birth_date\": \"2015-11-19\",\n            \"cpf\": \"90782487939\",\n            \"cns\": \"778712665557288\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/002222?text=repudiandae\",\n            \"address\": {\n                \"zip_code\": \"76963-054\",\n                \"street\": \"Largo Jerônimo Delvalle\",\n                \"number\": \"176\",\n                \"complement\": \"Bc. 67 Ap. 98\",\n                \"district\": \"São Reinaldo\",\n                \"city\": \"Vila Mário\",\n                \"state\": \"MG\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"full_name\": \"Sra. Mila Matos Ferreira Sobrinho\",\n            \"mother_name\": \"Dr. Valentin Carrara Pontes\",\n            \"birth_date\": \"2003-11-27\",\n            \"cpf\": \"80781693535\",\n            \"cns\": \"971478372225134\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00ee55?text=et\",\n            \"address\": {\n                \"zip_code\": \"09168-486\",\n                \"street\": \"R. George\",\n                \"number\": \"76675\",\n                \"complement\": \"Bc. 7 Ap. 50\",\n                \"district\": \"São Thalissa\",\n                \"city\": \"Rocha do Norte\",\n                \"state\": \"MG\"\n            }\n        },\n        {\n            \"id\": 8,\n            \"full_name\": \"Júlio Prado Molina Jr.\",\n            \"mother_name\": \"Dr. Leonardo Carrara Salgado\",\n            \"birth_date\": \"2002-09-16\",\n            \"cpf\": \"64145693213\",\n            \"cns\": \"542341008065771\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00dd22?text=sint\",\n            \"address\": {\n                \"zip_code\": \"32134-398\",\n                \"street\": \"Travessa Maria Madeira\",\n                \"number\": \"35060\",\n                \"complement\": \"Bloco B\",\n                \"district\": \"Porto Karen do Leste\",\n                \"city\": \"Furtado do Sul\",\n                \"state\": \"PA\"\n            }\n        },\n        {\n            \"id\": 9,\n            \"full_name\": \"Dr. Caroline Melinda Bonilha\",\n            \"mother_name\": \"Dr. Daniele das Neves Jr.\",\n            \"birth_date\": \"2001-04-04\",\n            \"cpf\": \"15488762329\",\n            \"cns\": \"329539985740542\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/0099dd?text=temporibus\",\n            \"address\": {\n                \"zip_code\": \"74818-183\",\n                \"street\": \"Av. Rocha\",\n                \"number\": \"317\",\n                \"complement\": \"Apto 8\",\n                \"district\": \"Vila Tomás do Sul\",\n                \"city\": \"São Luciana d'Oeste\",\n                \"state\": \"RO\"\n            }\n        },\n        {\n            \"id\": 10,\n            \"full_name\": \"Srta. Gabriela Padilha Meireles Neto\",\n            \"mother_name\": \"Poliana Marés Maldonado Sobrinho\",\n            \"birth_date\": \"2017-03-14\",\n            \"cpf\": \"98274214250\",\n            \"cns\": \"585629325228293\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00bbff?text=id\",\n            \"address\": {\n                \"zip_code\": \"96244-379\",\n                \"street\": \"Rua Filipe\",\n                \"number\": \"1639\",\n                \"complement\": \"Apto 8\",\n                \"district\": \"Santa Nelson do Sul\",\n                \"city\": \"São Moisés do Leste\",\n                \"state\": \"RO\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/v1/patients?page=101\",\n        \"prev\": null,\n        \"next\": \"http://127.0.0.1:8000/api/v1/patients?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 101,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=4\",\n                \"label\": \"4\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=5\",\n                \"label\": \"5\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=6\",\n                \"label\": \"6\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=7\",\n                \"label\": \"7\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=8\",\n                \"label\": \"8\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=9\",\n                \"label\": \"9\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=10\",\n                \"label\": \"10\",\n                \"active\": false\n            },\n            {\n                \"url\": null,\n                \"label\": \"...\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=100\",\n                \"label\": \"100\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=101\",\n                \"label\": \"101\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/v1/patients\",\n        \"per_page\": 10,\n        \"to\": 10,\n        \"total\": 1002\n    }\n}"
+				},
+				{
+					"name": "Search by Patient Name",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients?search=Marcos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "Marcos",
+									"description": "Search Patient by Name"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 02:28:47 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 02:28:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 347,\n            \"full_name\": \"Sr. Marcos Nelson Dias Sobrinho\",\n            \"mother_name\": \"Srta. Giovanna Abreu Jr.\",\n            \"birth_date\": \"1982-09-19\",\n            \"cpf\": \"10313009708\",\n            \"cns\": \"376059762134732\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/008822?text=pariatur\"\n        },\n        {\n            \"id\": 572,\n            \"full_name\": \"Sr. Heitor Marcos D'ávila Filho\",\n            \"mother_name\": \"Emiliano Chaves Jr.\",\n            \"birth_date\": \"1970-04-30\",\n            \"cpf\": \"78646849392\",\n            \"cns\": \"809246772525404\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00dd88?text=ab\"\n        },\n        {\n            \"id\": 698,\n            \"full_name\": \"Sr. Marcos Rios Alcantara Jr.\",\n            \"mother_name\": \"Rafael Verdara\",\n            \"birth_date\": \"1976-01-19\",\n            \"cpf\": \"17985653406\",\n            \"cns\": \"047706692317593\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/0099ff?text=enim\"\n        },\n        {\n            \"id\": 842,\n            \"full_name\": \"Sr. Michael Marcos Teles Neto\",\n            \"mother_name\": \"Tessália Milene Carrara\",\n            \"birth_date\": \"1982-02-23\",\n            \"cpf\": \"55484152801\",\n            \"cns\": \"089432760881873\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/0033ee?text=culpa\"\n        },\n        {\n            \"id\": 961,\n            \"full_name\": \"Dr. Marcos David Romero Neto\",\n            \"mother_name\": \"Srta. Suellen Mascarenhas Leal\",\n            \"birth_date\": \"1988-12-19\",\n            \"cpf\": \"55574937352\",\n            \"cns\": \"041324376502953\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/001100?text=iusto\"\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n        \"prev\": null,\n        \"next\": null\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 1,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/v1/patients\",\n        \"per_page\": 10,\n        \"to\": 5,\n        \"total\": 5\n    }\n}"
+				},
+				{
+					"name": "Search by Name with Address",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients?with_address=1&search=Marcos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "with_address",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "Marcos"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 02:30:58 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 02:30:58 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"full_name\": \"Marco Nero de Aguiar Jr.\",\n            \"mother_name\": \"Inácio Dias\",\n            \"birth_date\": \"1994-11-23\",\n            \"cpf\": \"70915611120\",\n            \"cns\": \"639179761075133\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00ff11?text=laboriosam\",\n            \"address\": {\n                \"zip_code\": \"16238-045\",\n                \"street\": \"R. Rosana Zamana\",\n                \"number\": \"2\",\n                \"complement\": \"Apto 148\",\n                \"district\": \"São Eva do Leste\",\n                \"city\": \"Andres do Leste\",\n                \"state\": \"PI\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"full_name\": \"Sr. Adriano Ortiz Sobrinho\",\n            \"mother_name\": \"Dr. Josefina Fabiana Ávila Filho\",\n            \"birth_date\": \"1996-01-31\",\n            \"cpf\": \"52485114021\",\n            \"cns\": \"016449510990817\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/009988?text=deserunt\",\n            \"address\": {\n                \"zip_code\": \"42225-856\",\n                \"street\": \"R. Camila Paz\",\n                \"number\": \"566\",\n                \"complement\": \"Fundos\",\n                \"district\": \"Santa Adriel\",\n                \"city\": \"Thiago d'Oeste\",\n                \"state\": \"PI\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"full_name\": \"Silvana Lovato Jr.\",\n            \"mother_name\": \"Bernardo Teles Neto\",\n            \"birth_date\": \"2015-09-06\",\n            \"cpf\": \"28088101999\",\n            \"cns\": \"670360654137881\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/009900?text=error\",\n            \"address\": {\n                \"zip_code\": \"11357-937\",\n                \"street\": \"R. Dener Neves\",\n                \"number\": \"3348\",\n                \"complement\": \"Anexo\",\n                \"district\": \"Martines do Norte\",\n                \"city\": \"Porto Afonso do Sul\",\n                \"state\": \"BA\"\n            }\n        },\n        {\n            \"id\": 4,\n            \"full_name\": \"Artur Erik Arruda Jr.\",\n            \"mother_name\": \"Cristóvão Montenegro Aragão Jr.\",\n            \"birth_date\": \"2000-10-24\",\n            \"cpf\": \"13711041744\",\n            \"cns\": \"438131669420456\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/004488?text=aspernatur\",\n            \"address\": {\n                \"zip_code\": \"36524-610\",\n                \"street\": \"Rua Reinaldo Deverso\",\n                \"number\": \"17\",\n                \"complement\": \"918º Andar\",\n                \"district\": \"Porto Pedro\",\n                \"city\": \"Porto Denis\",\n                \"state\": \"MG\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"full_name\": \"Dr. André Jean Galindo\",\n            \"mother_name\": \"Dr. Karina Santos\",\n            \"birth_date\": \"1970-08-29\",\n            \"cpf\": \"56597620771\",\n            \"cns\": \"439630650983627\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/004400?text=dolorem\",\n            \"address\": {\n                \"zip_code\": \"48388-637\",\n                \"street\": \"Travessa Márcio\",\n                \"number\": \"62615\",\n                \"complement\": \"Apto 8\",\n                \"district\": \"Felipe do Norte\",\n                \"city\": \"São Eduardo do Norte\",\n                \"state\": \"RS\"\n            }\n        },\n        {\n            \"id\": 6,\n            \"full_name\": \"Tatiana Lourenço Correia Sobrinho\",\n            \"mother_name\": \"Sra. Madalena Marin Neto\",\n            \"birth_date\": \"2015-11-19\",\n            \"cpf\": \"90782487939\",\n            \"cns\": \"778712665557288\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/002222?text=repudiandae\",\n            \"address\": {\n                \"zip_code\": \"76963-054\",\n                \"street\": \"Largo Jerônimo Delvalle\",\n                \"number\": \"176\",\n                \"complement\": \"Bc. 67 Ap. 98\",\n                \"district\": \"São Reinaldo\",\n                \"city\": \"Vila Mário\",\n                \"state\": \"MG\"\n            }\n        },\n        {\n            \"id\": 7,\n            \"full_name\": \"Sra. Mila Matos Ferreira Sobrinho\",\n            \"mother_name\": \"Dr. Valentin Carrara Pontes\",\n            \"birth_date\": \"2003-11-27\",\n            \"cpf\": \"80781693535\",\n            \"cns\": \"971478372225134\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00ee55?text=et\",\n            \"address\": {\n                \"zip_code\": \"09168-486\",\n                \"street\": \"R. George\",\n                \"number\": \"76675\",\n                \"complement\": \"Bc. 7 Ap. 50\",\n                \"district\": \"São Thalissa\",\n                \"city\": \"Rocha do Norte\",\n                \"state\": \"MG\"\n            }\n        },\n        {\n            \"id\": 8,\n            \"full_name\": \"Júlio Prado Molina Jr.\",\n            \"mother_name\": \"Dr. Leonardo Carrara Salgado\",\n            \"birth_date\": \"2002-09-16\",\n            \"cpf\": \"64145693213\",\n            \"cns\": \"542341008065771\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00dd22?text=sint\",\n            \"address\": {\n                \"zip_code\": \"32134-398\",\n                \"street\": \"Travessa Maria Madeira\",\n                \"number\": \"35060\",\n                \"complement\": \"Bloco B\",\n                \"district\": \"Porto Karen do Leste\",\n                \"city\": \"Furtado do Sul\",\n                \"state\": \"PA\"\n            }\n        },\n        {\n            \"id\": 9,\n            \"full_name\": \"Dr. Caroline Melinda Bonilha\",\n            \"mother_name\": \"Dr. Daniele das Neves Jr.\",\n            \"birth_date\": \"2001-04-04\",\n            \"cpf\": \"15488762329\",\n            \"cns\": \"329539985740542\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/0099dd?text=temporibus\",\n            \"address\": {\n                \"zip_code\": \"74818-183\",\n                \"street\": \"Av. Rocha\",\n                \"number\": \"317\",\n                \"complement\": \"Apto 8\",\n                \"district\": \"Vila Tomás do Sul\",\n                \"city\": \"São Luciana d'Oeste\",\n                \"state\": \"RO\"\n            }\n        },\n        {\n            \"id\": 10,\n            \"full_name\": \"Srta. Gabriela Padilha Meireles Neto\",\n            \"mother_name\": \"Poliana Marés Maldonado Sobrinho\",\n            \"birth_date\": \"2017-03-14\",\n            \"cpf\": \"98274214250\",\n            \"cns\": \"585629325228293\",\n            \"picture\": \"https://via.placeholder.com/640x480.png/00bbff?text=id\",\n            \"address\": {\n                \"zip_code\": \"96244-379\",\n                \"street\": \"Rua Filipe\",\n                \"number\": \"1639\",\n                \"complement\": \"Apto 8\",\n                \"district\": \"Santa Nelson do Sul\",\n                \"city\": \"São Moisés do Leste\",\n                \"state\": \"RO\"\n            }\n        }\n    ],\n    \"links\": {\n        \"first\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n        \"last\": \"http://127.0.0.1:8000/api/v1/patients?page=101\",\n        \"prev\": null,\n        \"next\": \"http://127.0.0.1:8000/api/v1/patients?page=2\"\n    },\n    \"meta\": {\n        \"current_page\": 1,\n        \"from\": 1,\n        \"last_page\": 101,\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=2\",\n                \"label\": \"2\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=3\",\n                \"label\": \"3\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=4\",\n                \"label\": \"4\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=5\",\n                \"label\": \"5\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=6\",\n                \"label\": \"6\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=7\",\n                \"label\": \"7\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=8\",\n                \"label\": \"8\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=9\",\n                \"label\": \"9\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=10\",\n                \"label\": \"10\",\n                \"active\": false\n            },\n            {\n                \"url\": null,\n                \"label\": \"...\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=100\",\n                \"label\": \"100\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=101\",\n                \"label\": \"101\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://127.0.0.1:8000/api/v1/patients?page=2\",\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"path\": \"http://127.0.0.1:8000/api/v1/patients\",\n        \"per_page\": 10,\n        \"to\": 10,\n        \"total\": 1002\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Search without query",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients?search",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": null
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:01:01 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:01:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"search\": [\n            \"The search field is required.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Not Found: Search not Found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients?search=40408",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "search",
+									"value": "40408"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:11:24 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:11:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"No patients found.\"\n}"
+				},
+				{
+					"name": "Not Found: No patient found on database",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:18:14 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:18:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"No patients found.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Patient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/patients?full_name=John Doe&mother_name=Jane Doe&cpf=98388078348&cns=158930459940007&picture=my-photo-somedata.png&birth_date=1989-04-23&zip_code=05583100&street=Rua das Flores&number=123&complement=Esquina com Rua 10&district=Centro&city=Rio de Janeiro&state=RJ",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"patients"
+					],
+					"query": [
+						{
+							"key": "full_name",
+							"value": "John Doe"
+						},
+						{
+							"key": "mother_name",
+							"value": "Jane Doe"
+						},
+						{
+							"key": "cpf",
+							"value": "98388078348"
+						},
+						{
+							"key": "cns",
+							"value": "158930459940007"
+						},
+						{
+							"key": "picture",
+							"value": "my-photo-somedata.png"
+						},
+						{
+							"key": "birth_date",
+							"value": "1989-04-23"
+						},
+						{
+							"key": "zip_code",
+							"value": "05583100"
+						},
+						{
+							"key": "street",
+							"value": "Rua das Flores"
+						},
+						{
+							"key": "number",
+							"value": "123"
+						},
+						{
+							"key": "complement",
+							"value": "Esquina com Rua 10"
+						},
+						{
+							"key": "district",
+							"value": "Centro"
+						},
+						{
+							"key": "city",
+							"value": "Rio de Janeiro"
+						},
+						{
+							"key": "state",
+							"value": "RJ"
+						}
+					]
+				},
+				"description": "Create a patient on database with a valid form submit.\n\nCria um novo registro de paciente no banco de dados, após o envio de um formulário válido."
+			},
+			"response": [
+				{
+					"name": "Create Patient",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients?full_name=John Doe&mother_name=Jane Doe&cpf=98388078348&cns=158930459940007&picture=my-photo-somedata.png&birth_date=1989-04-23&zip_code=05583100&street=Rua das Flores&number=123&complement=Esquina com Rua 10&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "Jane Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "98388078348"
+								},
+								{
+									"key": "cns",
+									"value": "158930459940007"
+								},
+								{
+									"key": "picture",
+									"value": "my-photo-somedata.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "05583100"
+								},
+								{
+									"key": "street",
+									"value": "Rua das Flores"
+								},
+								{
+									"key": "number",
+									"value": "123"
+								},
+								{
+									"key": "complement",
+									"value": "Esquina com Rua 10"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:25:41 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:25:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Patient created successfully!\"\n}"
+				},
+				{
+					"name": "Bad Request: Duplicate CPF or CNS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients?full_name=John Doe&mother_name=Jane Doe&cpf=98388078348&cns=158930459940007&picture=my-photo-somedata.png&birth_date=1989-04-23&zip_code=05583100&street=Rua das Flores&number=123&complement=Esquina com Rua 10&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "Jane Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "98388078348"
+								},
+								{
+									"key": "cns",
+									"value": "158930459940007"
+								},
+								{
+									"key": "picture",
+									"value": "my-photo-somedata.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "05583100"
+								},
+								{
+									"key": "street",
+									"value": "Rua das Flores"
+								},
+								{
+									"key": "number",
+									"value": "123"
+								},
+								{
+									"key": "complement",
+									"value": "Esquina com Rua 10"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:13:23 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:13:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"cpf\": [\n            \"The cpf has already been taken.\"\n        ],\n        \"cns\": [\n            \"The cns has already been taken.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Invalid CPF or CNS",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients?full_name=John Doe&mother_name=Jane Doe&cpf=98388078344&cns=158930459940004&picture=my-photo-somedata.png&birth_date=1989-04-23&zip_code=05583100&street=Rua das Flores&number=123&complement=Esquina com Rua 10&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "Jane Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "98388078344"
+								},
+								{
+									"key": "cns",
+									"value": "158930459940004"
+								},
+								{
+									"key": "picture",
+									"value": "my-photo-somedata.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "05583100"
+								},
+								{
+									"key": "street",
+									"value": "Rua das Flores"
+								},
+								{
+									"key": "number",
+									"value": "123"
+								},
+								{
+									"key": "complement",
+									"value": "Esquina com Rua 10"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:15:30 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:15:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"cpf\": [\n            \"CPF invalid. Please, check the number and try again.\"\n        ],\n        \"cns\": [\n            \"Invalid CNS number.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Invalid any required filed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients?full_name=&mother_name=Jane Doe&cpf=98388078348&cns=158930459940007&picture=my-photo-somedata.png&birth_date=1989-04-23&zip_code=05583100&street=Rua das Flores&number=123&complement=Esquina com Rua 10&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": ""
+								},
+								{
+									"key": "mother_name",
+									"value": "Jane Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "98388078348"
+								},
+								{
+									"key": "cns",
+									"value": "158930459940007"
+								},
+								{
+									"key": "picture",
+									"value": "my-photo-somedata.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "05583100"
+								},
+								{
+									"key": "street",
+									"value": "Rua das Flores"
+								},
+								{
+									"key": "number",
+									"value": "123"
+								},
+								{
+									"key": "complement",
+									"value": "Esquina com Rua 10"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:17:49 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:17:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"full_name\": [\n            \"The full name field is required.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Empty Form Submit",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients?full_name=&mother_name=&cpf=&cns=&picture=&birth_date=&zip_code=&street=&number=&complement=&district=&city=&state=",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": ""
+								},
+								{
+									"key": "mother_name",
+									"value": ""
+								},
+								{
+									"key": "cpf",
+									"value": ""
+								},
+								{
+									"key": "cns",
+									"value": ""
+								},
+								{
+									"key": "picture",
+									"value": ""
+								},
+								{
+									"key": "birth_date",
+									"value": ""
+								},
+								{
+									"key": "zip_code",
+									"value": ""
+								},
+								{
+									"key": "street",
+									"value": ""
+								},
+								{
+									"key": "number",
+									"value": ""
+								},
+								{
+									"key": "complement",
+									"value": ""
+								},
+								{
+									"key": "district",
+									"value": ""
+								},
+								{
+									"key": "city",
+									"value": ""
+								},
+								{
+									"key": "state",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:19:25 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:19:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"full_name\": [\n            \"The full name field is required.\"\n        ],\n        \"mother_name\": [\n            \"The mother name field is required.\"\n        ],\n        \"birth_date\": [\n            \"The birth date field is required.\"\n        ],\n        \"cpf\": [\n            \"The cpf field is required.\"\n        ],\n        \"cns\": [\n            \"The cns field is required.\"\n        ],\n        \"zip_code\": [\n            \"The zip code field is required.\"\n        ],\n        \"street\": [\n            \"The street field is required.\"\n        ],\n        \"number\": [\n            \"The number field is required.\"\n        ],\n        \"complement\": [\n            \"The complement field is required.\"\n        ],\n        \"district\": [\n            \"The district field is required.\"\n        ],\n        \"city\": [\n            \"The city field is required.\"\n        ],\n        \"state\": [\n            \"The state field is required.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Show Patient",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/patients/:id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"patients",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Show Patient with Valid ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:25:27 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:25:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"full_name\": \"Vanessa Léia Ávila Filho\",\n        \"mother_name\": \"Wellington Padilha Filho\",\n        \"birth_date\": \"2020-02-11\",\n        \"cpf\": \"02699012483\",\n        \"cns\": \"006255528525175\",\n        \"picture\": \"https://via.placeholder.com/640x480.png/002222?text=eos\"\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Invalid ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "a"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:26:24 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:26:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"id\": [\n            \"The id field must be an integer.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Show Patient",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "90000"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:27:07 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:27:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"id\": [\n            \"The selected id is invalid.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: ID not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/v1/patients/:id",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10000000"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:27:40 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 03:27:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"id\": [\n            \"The selected id is invalid.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Patient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=John Doe&mother_name=John Doe&cpf=23741241342&cns=190847969380004&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"patients",
+						":id"
+					],
+					"query": [
+						{
+							"key": "full_name",
+							"value": "John Doe"
+						},
+						{
+							"key": "mother_name",
+							"value": "John Doe"
+						},
+						{
+							"key": "cpf",
+							"value": "23741241342"
+						},
+						{
+							"key": "cns",
+							"value": "190847969380004"
+						},
+						{
+							"key": "picture",
+							"value": "app.png"
+						},
+						{
+							"key": "birth_date",
+							"value": "1989-04-23"
+						},
+						{
+							"key": "zip_code",
+							"value": "25041298"
+						},
+						{
+							"key": "street",
+							"value": "Rua do Amanhã"
+						},
+						{
+							"key": "number",
+							"value": "11"
+						},
+						{
+							"key": "complement",
+							"value": "house"
+						},
+						{
+							"key": "district",
+							"value": "Centro"
+						},
+						{
+							"key": "city",
+							"value": "Rio de Janeiro"
+						},
+						{
+							"key": "state",
+							"value": "RJ"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				},
+				"description": "Update patient information with a valid id on database\n\nAtualiza as informações do paciente com um id válido no banco de dados"
+			},
+			"response": [
+				{
+					"name": "Update Patient with Valid ID and Valid Data",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=John Doe&mother_name=John Doe&cpf=23741241342&cns=190847969380004&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "23741241342"
+								},
+								{
+									"key": "cns",
+									"value": "190847969380004"
+								},
+								{
+									"key": "picture",
+									"value": "app.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "25041298"
+								},
+								{
+									"key": "street",
+									"value": "Rua do Amanhã"
+								},
+								{
+									"key": "number",
+									"value": "11"
+								},
+								{
+									"key": "complement",
+									"value": "house"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:43:31 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:43:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Patient updated successfully!\"\n}"
+				},
+				{
+					"name": "Bad Request: Invalid CPF Length",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=John Doe&mother_name=John Doe&cpf=237412413427&cns=190847969380004&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "237412413427"
+								},
+								{
+									"key": "cns",
+									"value": "190847969380004"
+								},
+								{
+									"key": "picture",
+									"value": "app.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "25041298"
+								},
+								{
+									"key": "street",
+									"value": "Rua do Amanhã"
+								},
+								{
+									"key": "number",
+									"value": "11"
+								},
+								{
+									"key": "complement",
+									"value": "house"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:44:41 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:44:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"cpf\": [\n            \"The cpf field must not be greater than 11 characters.\",\n            \"CPF must have 11 digits. Please, check the number and try again.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Invalid CPF",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=John Doe&mother_name=John Doe&cpf=80483105621&cns=190847969380004&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "80483105621"
+								},
+								{
+									"key": "cns",
+									"value": "190847969380004"
+								},
+								{
+									"key": "picture",
+									"value": "app.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "25041298"
+								},
+								{
+									"key": "street",
+									"value": "Rua do Amanhã"
+								},
+								{
+									"key": "number",
+									"value": "11"
+								},
+								{
+									"key": "complement",
+									"value": "house"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:46:41 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:46:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"cpf\": [\n            \"CPF invalid. Please, check the number and try again.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Invalid CNS Length",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=John Doe&mother_name=John Doe&cpf=80483105627&cns=19084796938000&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "80483105627"
+								},
+								{
+									"key": "cns",
+									"value": "19084796938000"
+								},
+								{
+									"key": "picture",
+									"value": "app.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "25041298"
+								},
+								{
+									"key": "street",
+									"value": "Rua do Amanhã"
+								},
+								{
+									"key": "number",
+									"value": "11"
+								},
+								{
+									"key": "complement",
+									"value": "house"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:47:30 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:47:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"cns\": [\n            \"The CNS must be 15 digits long.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Invalid CNS number",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=John Doe&mother_name=John Doe&cpf=80483105627&cns=190847969380006&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "80483105627"
+								},
+								{
+									"key": "cns",
+									"value": "190847969380006"
+								},
+								{
+									"key": "picture",
+									"value": "app.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "25041298"
+								},
+								{
+									"key": "street",
+									"value": "Rua do Amanhã"
+								},
+								{
+									"key": "number",
+									"value": "11"
+								},
+								{
+									"key": "complement",
+									"value": "house"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:49:19 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:49:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"cns\": [\n            \"Invalid CNS number.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Update withou a valid ID",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=John Doe&mother_name=John Doe&cpf=80483105627&cns=190847969380004&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "mother_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "80483105627"
+								},
+								{
+									"key": "cns",
+									"value": "190847969380004"
+								},
+								{
+									"key": "picture",
+									"value": "app.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "25041298"
+								},
+								{
+									"key": "street",
+									"value": "Rua do Amanhã"
+								},
+								{
+									"key": "number",
+									"value": "11"
+								},
+								{
+									"key": "complement",
+									"value": "house"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:50:13 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:50:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"cpf\": [\n            \"The cpf has already been taken.\"\n        ],\n        \"cns\": [\n            \"The cns has already been taken.\"\n        ]\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Without any required field",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id?full_name=&mother_name=John Doe&cpf=80483105627&cns=190847969380004&picture=app.png&birth_date=1989-04-23&zip_code=25041298&street=Rua do Amanhã&number=11&complement=house&district=Centro&city=Rio de Janeiro&state=RJ",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"query": [
+								{
+									"key": "full_name",
+									"value": ""
+								},
+								{
+									"key": "mother_name",
+									"value": "John Doe"
+								},
+								{
+									"key": "cpf",
+									"value": "80483105627"
+								},
+								{
+									"key": "cns",
+									"value": "190847969380004"
+								},
+								{
+									"key": "picture",
+									"value": "app.png"
+								},
+								{
+									"key": "birth_date",
+									"value": "1989-04-23"
+								},
+								{
+									"key": "zip_code",
+									"value": "25041298"
+								},
+								{
+									"key": "street",
+									"value": "Rua do Amanhã"
+								},
+								{
+									"key": "number",
+									"value": "11"
+								},
+								{
+									"key": "complement",
+									"value": "house"
+								},
+								{
+									"key": "district",
+									"value": "Centro"
+								},
+								{
+									"key": "city",
+									"value": "Rio de Janeiro"
+								},
+								{
+									"key": "state",
+									"value": "RJ"
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:51:59 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:51:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "56"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"full_name\": [\n            \"The full name field is required.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Patient",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/patients/:id",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"patients",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Delete a patiente by a valid id\n\nDelete um registro de paciente através de id válido"
+			},
+			"response": [
+				{
+					"name": "Delete Patient with a valid ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:54:20 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:54:20 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Patient deleted successfully!\"\n}"
+				},
+				{
+					"name": "Bad Request: Invalid ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/:id",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:54:49 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:54:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Validation failed.\",\n    \"errors\": {\n        \"id\": [\n            \"The selected id is invalid.\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Import Patient from CSV file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "CSV file with header\n",
+							"type": "file",
+							"src": "postman-cloud:///1eed44e4-d007-4fc0-92a6-67afe8e7b474"
+						}
+					]
+				},
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/patients/import",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"patients",
+						"import"
+					]
+				},
+				"description": "Import values from a CSV or txt valid with header from database after upload\n\nImporta os valiores válidos de um arquivo CSV ou txt com um header"
+			},
+			"response": [
+				{
+					"name": "Import Patient from CSV File",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "CSV file with header\n",
+									"type": "file",
+									"src": "postman-cloud:///1eed44e4-d007-4fc0-92a6-67afe8e7b474"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/import/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								"import",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:55:46 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:55:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"File imported successfully\"\n}"
+				},
+				{
+					"name": "Bad Request: Duplicated Import",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"description": "CSV file with header\n",
+									"type": "file",
+									"src": "postman-cloud:///1eed44e4-d007-4fc0-92a6-67afe8e7b474"
+								}
+							]
+						},
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/patients/import/",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"patients",
+								"import",
+								""
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:57:05 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:57:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Error on validation. Please, check your data.\",\n    \"errors\": {\n        \"fail\": {\n            \"cpf\": [\n                \"The cpf has already been taken.\"\n            ],\n            \"cns\": [\n                \"The cns has already been taken.\"\n            ]\n        },\n        \"info\": {\n            \"full_name\": \"João da Silva\",\n            \"mother_name\": \"Maria da Silva\",\n            \"birth_date\": \"1990-05-15\",\n            \"cpf\": \"12345678900\",\n            \"cns\": \"123456789012345\",\n            \"picture\": \"joao.jpg\",\n            \"zip_code\": \"12345678\",\n            \"street\": \"Rua A\",\n            \"number\": \"100\",\n            \"complement\": \"Apto 101\",\n            \"district\": \"Centro\",\n            \"city\": \"São Paulo\",\n            \"state\": \"SP\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Search CEP Integration",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "127.0.0.1:8000/api/v1/cep/:cep",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"cep",
+						":cep"
+					],
+					"variable": [
+						{
+							"key": "cep",
+							"value": "25041298"
+						}
+					]
+				},
+				"description": "Return a valid CEP information after search into a VIA CEP external API.\n\nRetorna as informações de um CEP válido após consulta na Api Via CEP."
+			},
+			"response": [
+				{
+					"name": "Search CEP Integration",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/cep/:cep",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cep",
+								":cep"
+							],
+							"variable": [
+								{
+									"key": "cep",
+									"value": "25041298"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:58:30 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:58:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"cep\": \"25041-298\",\n        \"logradouro\": \"Rua Paranapiacaba\",\n        \"complemento\": \"\",\n        \"bairro\": \"Parque Fluminense\",\n        \"localidade\": \"Duque de Caxias\",\n        \"uf\": \"RJ\",\n        \"ibge\": \"3301702\",\n        \"gia\": \"\",\n        \"ddd\": \"21\",\n        \"siafi\": \"5833\"\n    }\n}"
+				},
+				{
+					"name": "Bad Request: Invalid Cep Length",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/cep/:cep",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cep",
+								":cep"
+							],
+							"variable": [
+								{
+									"key": "cep",
+									"value": "2504129896"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:59:15 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 11:59:15 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Invalid CEP. The CEP must have 8 digits.\"\n}"
+				},
+				{
+					"name": "Bad Request: CEP not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "127.0.0.1:8000/api/v1/cep/:cep",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"cep",
+								":cep"
+							],
+							"variable": [
+								{
+									"key": "cep",
+									"value": "00000121"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 12:00:33 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 26 Feb 2024 12:00:33 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.2-1ubuntu2.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"CEP not found. Check the CEP and try again.\"\n}"
+				}
+			]
+		}
+	]
+}
