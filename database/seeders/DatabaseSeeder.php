@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         Patient::factory()
-            ->count(1000)
+            ->count(5)
             ->create();
     }
 }
