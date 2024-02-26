@@ -19,6 +19,12 @@
 
 Esta é uma aplicação Laravel, portanto, para instalar e executar a aplicação, siga os procedimentos oficiais do Laravel. Neste link você encontra o guia de instalação do Laravel: https://laravel.com/docs/10.x/installation
 
+### Testes
+Rode o comando abaixo para executar os testes unitários e de integração:
+```bash
+php artisan test
+```
+
 ### Postman Documentation
 https://documenter.getpostman.com/view/2124609/2sA2rDwgEx
 
