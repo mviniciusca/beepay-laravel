@@ -22,7 +22,7 @@ class PatientController extends Controller
     {
         if ($request->has('search')) {
             $data = Validator::make(request()->all(), [
-                'search' => ['required', 'string', 'max:140'],
+                'search' => ['required', 'string', 'max:255'],
             ]);
 
             if ($data->fails()) {
@@ -46,8 +46,8 @@ class PatientController extends Controller
             return PatientResource::collection($patients);
         }
 
-        $patients = Patient::query()
-            ->paginate(10);
+        $patients = Patient::
+            query()->paginate(10);
 
         if ($patients->isEmpty()) {
             return response()->json([
